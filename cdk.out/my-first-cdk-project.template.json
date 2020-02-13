@@ -1,0 +1,24 @@
+{
+  "Resources": {
+    "myBucketId9D590DD7": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "aws:kms"
+              }
+            }
+          ]
+        },
+        "BucketName": "myfirstcdkproject010"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "my-first-cdk-project/myBucketId/Resource"
+      }
+    }
+  }
+}
