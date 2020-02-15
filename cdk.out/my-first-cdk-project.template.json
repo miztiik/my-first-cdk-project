@@ -33,6 +33,12 @@
       "Metadata": {
         "aws:cdk:path": "my-first-cdk-project/myBucketId1/Resource"
       }
+    },
+    "gidAF1DAB4C": {
+      "Type": "AWS::IAM::Group",
+      "Metadata": {
+        "aws:cdk:path": "my-first-cdk-project/gid/Resource"
+      }
     }
   },
   "Outputs": {
