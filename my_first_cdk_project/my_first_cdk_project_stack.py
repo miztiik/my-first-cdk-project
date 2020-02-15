@@ -16,5 +16,6 @@ class MyFirstCdkProjectStack(core.Stack):
             "myBucketId",
             bucket_name="myfirstcdkproject010",
             versioned=False,
-            encryption=_s3.BucketEncryption.KMS_MANAGED
+            encryption=_s3.BucketEncryption.S3_MANAGED,
+            block_public_access=_s3.BlockPublicAccess.BLOCK_ALL
         )
