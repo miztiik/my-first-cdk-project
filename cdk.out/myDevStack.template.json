@@ -1,0 +1,12 @@
+{
+  "Resources": {
+    "myDevArtifactBucketId6A8A0E41": {
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "myDevStack/myDevArtifactBucketId/Resource"
+      }
+    }
+  }
+}
