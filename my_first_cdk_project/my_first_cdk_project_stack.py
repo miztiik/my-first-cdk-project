@@ -19,4 +19,5 @@ class MyArtifactBucketStack(core.Stack):
                                         removal_policy=core.RemovalPolicy.RETAIN)
         else:
             artifactBucket = _s3.Bucket(self,
-                                        "myDevArtifactBucketId")
+                                        "myDevArtifactBucketId",
+                                        removal_policy=core.RemovalPolicy.DESTROY)
