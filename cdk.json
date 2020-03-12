@@ -5,13 +5,14 @@
     "envs": {
       "dev": {
         "region": "us-east-1",
-        "account": "904521749370"
+        "account": "830058508584"
       },
       "prod": {
+        "support-email": "abac@xyz.com",
         "region": "us-east-1",
-        "account": "313487964768",
+        "account": "830058508584",
         "encryption": true,
-        "kms_arn": "arn:aws:kms:us-east-1:313487964768:key/d02d609a-cac7-4563-9fc7-4ee9052c9e84",
+        "kms_arn": "",
         "vpc_configs": {
           "vpc_cidr": "10.83.0.0/20",
           "cidr_mask": 24,
