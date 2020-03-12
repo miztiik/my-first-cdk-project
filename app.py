@@ -7,7 +7,8 @@ from resource_stacks.custom_vpc import CustomVpcStack
 
 app = core.App()
 
-CustomVpcStack(app, "my-custom-vpc-stack")
+CustomVpcStack(app, "my-custom-vpc-stack",
+               env=core.Environment(account="830058508584", region="us-east-1"))
 
 core.Tag.add(app, key="stack-name", value="network-stack")
 core.Tag.add(app, key="support-team",
