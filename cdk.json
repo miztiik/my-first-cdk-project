@@ -2,13 +2,17 @@
   "app": "python3 app.py",
   "versionReporting": false,
   "context": {
+    "owner": "Mystique",
+    "github_repo_url": "https://github.com/miztiik/my-first-cdk-project",
+    "github_profile": "https://github.com/miztiik",
+    "youtube_profile": "https://youtube.com/c/valaxytechnologies",
     "envs": {
       "dev": {
         "region": "us-east-1",
         "account": "830058508584"
       },
       "prod": {
-        "support-email": "abac@xyz.com",
+        "support-team": "miztiik@github",
         "region": "us-east-1",
         "account": "830058508584",
         "encryption": true,
