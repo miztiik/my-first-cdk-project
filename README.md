@@ -48,7 +48,7 @@ Here you will learn to use CDK to deploy different AWS resources. All the `sampl
 
 ## 👋 Buy me a coffee
 
-Buy me a coffee ☕ through [Paypal](https://paypal.me/valaxy), _or_ You can reach out to get more details through [here](https://youtube.com/c/valaxytechnologies/about).
+    Buy me a coffee ☕ through [Paypal](https://paypal.me/valaxy), _or_ You can reach out to get more details through [here](https://youtube.com/c/valaxytechnologies/about).
 
 ### 💡 Help/Suggestions or 🐛 Bugs
 
