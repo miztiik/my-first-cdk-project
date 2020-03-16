@@ -6,6 +6,7 @@ from resource_stacks.custom_vpc import CustomVpcStack
 from resource_stacks.custom_ec2 import CustomEc2Stack
 from resource_stacks.custom_ec2_with_instance_profile import CustomEc2InstanceProfileStack
 from resource_stacks.custom_ec2_with_latest_ami import CustomEc2LatestAmiStack
+from resource_stacks.custom_ec2_with_ebs_piops import CustomEc2PiopsStack
 
 
 app = core.App()
@@ -22,7 +23,10 @@ env_prod = core.Environment(account="830058508584", region="us-east-1")
 # CustomEc2InstanceProfileStack(app, "web-server-stack", env=env_prod)
 
 # Custom EC2 Instace with Latest AMI Stack
-CustomEc2LatestAmiStack(app, "web-server-latest-ami-stack", env=env_prod)
+# CustomEc2LatestAmiStack(app, "web-server-latest-ami-stack", env=env_prod)
+
+# EC2 with Provisioned IOPS
+piops_stack = CustomEc2PiopsStack(app, "ec2-with-piops-stack")
 
 
 # Stack Level Tagging
