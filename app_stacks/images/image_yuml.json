@@ -1,0 +1,9 @@
+{
+    "customisations": "scruffy;dir:LR;scale:120",
+    "type": "class",
+    "dsl": "[User{bg:wheat}]-->[Application Load Balancer{bg:wheat}], , , [Application Load Balancer]-.->[Web Server ..N{bg:red}], , [Application Load Balancer]-.->[Web Server 002{bg:orange}], , [Application Load Balancer]-.->[Web Server 001{bg:green}]",
+    "digest": "eace70d9",
+    "file_only": false,
+    "mime": "image/png",
+    "extension": "png"
+}
