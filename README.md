@@ -6,7 +6,7 @@ Here you will learn to use CDK to deploy different AWS resources. All the `sampl
 1. ## 🧰 Prerequisites
 
     - 🛠 AWS CLI pre-configured - [Get help here](https://youtu.be/TPyyfmQte0U)
-    - 🛠 AWS CDK pre-installed - `npm install -g aws-cdk`
+    - 🛠 AWS CDK Installed & Configured - [Get help here](https://www.youtube.com/watch?v=MKwxpszw0Rc)
 
 1. ## ⚙️ Setting up the environment
 
