@@ -10,6 +10,7 @@ from resource_stacks.custom_ec2_with_ebs_piops import CustomEc2PiopsStack
 from resource_stacks.custom_parameters_secrets import CustomParametersSecretsStack
 from resource_stacks.custom_iam_users_groups import CustomIamUsersGroupsStack
 from resource_stacks.custom_iam_roles_policies import CustomRolesPoliciesStack
+from resource_stacks.custom_s3_resource_policy import CustomS3ResourcePolicyStack
 
 from app_stacks.vpc_stack import VpcStack
 from app_stacks.web_server_stack import WebServerStack
@@ -54,10 +55,17 @@ env_prod = core.Environment(account="830058508584", region="us-east-1")
 # )
 
 # Create IAM Roles & Policies
-custom_iam_roles_policies = CustomRolesPoliciesStack(
+# custom_iam_roles_policies = CustomRolesPoliciesStack(
+#     app,
+#     "custom-iam-roles-policies-stack",
+#     description="Create IAM Roles & Policies"
+# )
+
+# Create S3 Resource Policy
+custom_s3_resource_policy = CustomS3ResourcePolicyStack(
     app,
-    "custom-iam-roles-policies-stack",
-    description="Create IAM Roles & Policies"
+    "custom-s3-esource-policy-stack",
+    description="Create S3 Resource Policy"
 )
 
 
