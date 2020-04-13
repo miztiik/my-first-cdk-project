@@ -8,6 +8,7 @@ from resource_stacks.custom_ec2_with_instance_profile import CustomEc2InstancePr
 from resource_stacks.custom_ec2_with_latest_ami import CustomEc2LatestAmiStack
 from resource_stacks.custom_ec2_with_ebs_piops import CustomEc2PiopsStack
 from resource_stacks.custom_parameters_secrets import CustomParametersSecretsStack
+from resource_stacks.custom_iam_users_groups import CustomIamUsersGroupsStack
 
 from app_stacks.vpc_stack import VpcStack
 from app_stacks.web_server_stack import WebServerStack
@@ -38,10 +39,17 @@ env_prod = core.Environment(account="830058508584", region="us-east-1")
 #     app, "multi-tier-app-web-server-stack", vpc=vpc_stack.vpc)
 
 # Create SSM Parameter & AWS Secrets Manager Secrets
-params_secrets_stack = CustomParametersSecretsStack(
+# params_secrets_stack = CustomParametersSecretsStack(
+#     app,
+#     "custom-parameters-secrets-stack",
+#     description="Create SSM Parameter & AWS Secrets Manager Secrets"
+# )
+
+# Create IAM User & Groups
+iam_users_groups_stack = CustomIamUsersGroupsStack(
     app,
-    "custom-parameters-secrets-stack",
-    description="Create SSM Parameter & AWS Secrets Manager Secrets"
+    "custom-iam-users-groups-stack",
+    description="Create IAM User & Groups"
 )
 
 
