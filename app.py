@@ -9,6 +9,7 @@ from resource_stacks.custom_ec2_with_latest_ami import CustomEc2LatestAmiStack
 from resource_stacks.custom_ec2_with_ebs_piops import CustomEc2PiopsStack
 from resource_stacks.custom_parameters_secrets import CustomParametersSecretsStack
 from resource_stacks.custom_iam_users_groups import CustomIamUsersGroupsStack
+from resource_stacks.custom_iam_roles_policies import CustomRolesPoliciesStack
 
 from app_stacks.vpc_stack import VpcStack
 from app_stacks.web_server_stack import WebServerStack
@@ -46,10 +47,17 @@ env_prod = core.Environment(account="830058508584", region="us-east-1")
 # )
 
 # Create IAM User & Groups
-iam_users_groups_stack = CustomIamUsersGroupsStack(
+# iam_users_groups_stack = CustomIamUsersGroupsStack(
+#     app,
+#     "custom-iam-users-groups-stack",
+#     description="Create IAM User & Groups"
+# )
+
+# Create IAM Roles & Policies
+custom_iam_roles_policies = CustomRolesPoliciesStack(
     app,
-    "custom-iam-users-groups-stack",
-    description="Create IAM User & Groups"
+    "custom-iam-roles-policies-stack",
+    description="Create IAM Roles & Policies"
 )
 
 
