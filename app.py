@@ -7,6 +7,7 @@ from resource_stacks.custom_ec2 import CustomEc2Stack
 from resource_stacks.custom_ec2_with_instance_profile import CustomEc2InstanceProfileStack
 from resource_stacks.custom_ec2_with_latest_ami import CustomEc2LatestAmiStack
 from resource_stacks.custom_ec2_with_ebs_piops import CustomEc2PiopsStack
+from resource_stacks.custom_parameters_secrets import CustomParametersSecretsStack
 
 from app_stacks.vpc_stack import VpcStack
 from app_stacks.web_server_stack import WebServerStack
@@ -32,9 +33,16 @@ env_prod = core.Environment(account="830058508584", region="us-east-1")
 # piops_stack = CustomEc2PiopsStack(app, "ec2-with-piops-stack")
 
 # Application Stack ASG and ALB
-vpc_stack = VpcStack(app, "multi-tier-app-vpc-stack")
-ec2_stack = WebServerStack(
-    app, "multi-tier-app-web-server-stack", vpc=vpc_stack.vpc)
+# vpc_stack = VpcStack(app, "multi-tier-app-vpc-stack")
+# ec2_stack = WebServerStack(
+#     app, "multi-tier-app-web-server-stack", vpc=vpc_stack.vpc)
+
+# Create SSM Parameter & AWS Secrets Manager Secrets
+params_secrets_stack = CustomParametersSecretsStack(
+    app,
+    "custom-parameters-secrets-stack",
+    description="Create SSM Parameter & AWS Secrets Manager Secrets"
+)
 
 
 # Stack Level Tagging
