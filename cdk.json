@@ -1,6 +1,7 @@
 {
   "app": "python3 app.py",
   "versionReporting": false,
+  "requireApproval": "never",
   "context": {
     "owner": "Mystique",
     "github_repo_url": "https://github.com/miztiik/my-first-cdk-project",
