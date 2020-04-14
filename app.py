@@ -12,8 +12,15 @@ from resource_stacks.custom_iam_users_groups import CustomIamUsersGroupsStack
 from resource_stacks.custom_iam_roles_policies import CustomRolesPoliciesStack
 from resource_stacks.custom_s3_resource_policy import CustomS3ResourcePolicyStack
 
+
+# EC2 & VPC with Application LoadBalancer
 from app_stacks.vpc_stack import VpcStack
 from app_stacks.web_server_stack import WebServerStack
+
+# VPC, EC2, ALB, RDS Stack
+from app_db_stack.vpc_3tier_stack import Vpc3TierStack
+from app_db_stack.web_server_3tier_stack import WebServer3TierStack
+from app_db_stack.rds_3tier_stack import RdsDatabase3TierStack
 
 
 app = core.App()
@@ -62,10 +69,22 @@ env_prod = core.Environment(account="830058508584", region="us-east-1")
 # )
 
 # Create S3 Resource Policy
-custom_s3_resource_policy = CustomS3ResourcePolicyStack(
+# custom_s3_resource_policy = CustomS3ResourcePolicyStack(
+#     app,
+#     "custom-s3-esource-policy-stack",
+#     description="Create S3 Resource Policy"
+# )
+
+# Create 3Tier App with App Servers in ASG and Backend as RDS Database
+vpc_3tier_stack = Vpc3TierStack(app, "multi-tier-app-vpc-stack")
+app_3tier_stack = WebServer3TierStack(
+    app, "multi-tier-app-web-server-stack", vpc=vpc_3tier_stack.vpc)
+db_3tier_stack = RdsDatabase3TierStack(
     app,
-    "custom-s3-esource-policy-stack",
-    description="Create S3 Resource Policy"
+    "multi-tier-app-db-stack",
+    vpc=vpc_3tier_stack.vpc,
+    asg_security_groups=app_3tier_stack.web_server_asg.connections.security_groups,
+    description="Create Custom RDS Database"
 )
 
 
