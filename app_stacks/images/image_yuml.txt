@@ -1,0 +1,7 @@
+[User{bg:wheat}]-->[Application Load Balancer{bg:wheat}]
+
+[Application Load Balancer]-->[Web Server 001{bg:orange}]
+
+[Application Load Balancer]-->[Web Server 002{bg:orange}]
+
+[Application Load Balancer]-->[Web Server ..N{bg:orange}]
