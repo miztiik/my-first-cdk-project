@@ -12,6 +12,7 @@ from resource_stacks.custom_iam_users_groups import CustomIamUsersGroupsStack
 from resource_stacks.custom_iam_roles_policies import CustomRolesPoliciesStack
 from resource_stacks.custom_s3_resource_policy import CustomS3ResourcePolicyStack
 from resource_stacks.custom_sns import CustomSnsStack
+from resource_stacks.custom_sqs import CustomSqsStack
 
 
 # EC2 & VPC with Application LoadBalancer
@@ -95,12 +96,18 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 #                                                  description="Resource Stack from pre-existing Cloudformation Template"
 #                                                  )
 
-
 # Create SNS Topics & Add Email Subscriptions
-custom_sns = CustomSnsStack(
+# custom_sns = CustomSnsStack(
+#     app,
+#     "custom-sns-stack",
+#     description="Create SNS Topics & Add Email Subscriptions"
+# )
+
+# Create SQS for microservices
+custom_sqs = CustomSqsStack(
     app,
-    "custom-sns-stack",
-    description="Create SNS Topics & Add Email Subscriptions"
+    "custom-sqs-stack",
+    description="Create a fully managed message queues for microservices"
 )
 
 # Stack Level Tagging
