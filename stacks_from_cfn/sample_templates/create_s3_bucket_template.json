@@ -1,0 +1,32 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "EncryptedS3Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketEncryption": {
+                    "ServerSideEncryptionConfiguration": [
+                        {
+                            "ServerSideEncryptionByDefault": {
+                                "SSEAlgorithm": "AES256"
+                            }
+                        }
+                    ]
+                }
+            },
+            "DeletionPolicy": "Delete"
+        },
+        "KonstoneAssets": {
+            "Type": "AWS::SSM::Parameter",
+            "Properties": {
+                "Name": "Fish",
+                "Type": "String",
+                "Value": "130381",
+                "Description": "Behold the world.",
+                "Tags": {
+                    "Environment": "Live"
+                }
+            }
+        }
+    }
+}
