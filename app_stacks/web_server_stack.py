@@ -10,7 +10,7 @@ class WebServerStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, vpc, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        # Read BootStrap Script
+        # Read BootStrap Script):
         try:
             with open("bootstrap_scripts/install_httpd.sh", mode="r") as file:
                 user_data = file.read()
