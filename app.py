@@ -22,10 +22,11 @@ from app_db_stack.vpc_3tier_stack import Vpc3TierStack
 from app_db_stack.web_server_3tier_stack import WebServer3TierStack
 from app_db_stack.rds_3tier_stack import RdsDatabase3TierStack
 
+from stacks_from_cfn.stack_from_existing_cfn_template import StackFromCloudformationTemplate
 
 app = core.App()
 
-env_prod = core.Environment(account="830058508584", region="us-east-1")
+env_prod = core.Environment(account="835800058584", region="us-east-1")
 
 # Custom VPC Stack
 # CustomVpcStack(app, "my-custom-vpc-stack", env=env_prod)
@@ -76,16 +77,22 @@ env_prod = core.Environment(account="830058508584", region="us-east-1")
 # )
 
 # Create 3Tier App with App Servers in ASG and Backend as RDS Database
-vpc_3tier_stack = Vpc3TierStack(app, "multi-tier-app-vpc-stack")
-app_3tier_stack = WebServer3TierStack(
-    app, "multi-tier-app-web-server-stack", vpc=vpc_3tier_stack.vpc)
-db_3tier_stack = RdsDatabase3TierStack(
-    app,
-    "multi-tier-app-db-stack",
-    vpc=vpc_3tier_stack.vpc,
-    asg_security_groups=app_3tier_stack.web_server_asg.connections.security_groups,
-    description="Create Custom RDS Database"
-)
+# vpc_3tier_stack = Vpc3TierStack(app, "multi-tier-app-vpc-stack")
+# app_3tier_stack = WebServer3TierStack(
+#     app, "multi-tier-app-web-server-stack", vpc=vpc_3tier_stack.vpc)
+# db_3tier_stack = RdsDatabase3TierStack(
+#     app,
+#     "multi-tier-app-db-stack",
+#     vpc=vpc_3tier_stack.vpc,
+#     asg_security_groups=app_3tier_stack.web_server_asg.connections.security_groups,
+#     description="Create Custom RDS Database"
+# )
+
+# Resource Stack from pre-existing Cloudformation Template
+stack_from_cfn = StackFromCloudformationTemplate(app,
+                                                 "stack-from-pre-existing-cfn",
+                                                 description="Resource Stack from pre-existing Cloudformation Template"
+                                                 )
 
 
 # Stack Level Tagging
