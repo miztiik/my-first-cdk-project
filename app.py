@@ -11,6 +11,7 @@ from resource_stacks.custom_parameters_secrets import CustomParametersSecretsSta
 from resource_stacks.custom_iam_users_groups import CustomIamUsersGroupsStack
 from resource_stacks.custom_iam_roles_policies import CustomRolesPoliciesStack
 from resource_stacks.custom_s3_resource_policy import CustomS3ResourcePolicyStack
+from resource_stacks.custom_sns import CustomSnsStack
 
 
 # EC2 & VPC with Application LoadBalancer
@@ -89,11 +90,18 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Resource Stack from pre-existing Cloudformation Template
-stack_from_cfn = StackFromCloudformationTemplate(app,
-                                                 "stack-from-pre-existing-cfn",
-                                                 description="Resource Stack from pre-existing Cloudformation Template"
-                                                 )
+# stack_from_cfn = StackFromCloudformationTemplate(app,
+#                                                  "stack-from-pre-existing-cfn",
+#                                                  description="Resource Stack from pre-existing Cloudformation Template"
+#                                                  )
 
+
+# Create SNS Topics & Add Email Subscriptions
+custom_sns = CustomSnsStack(
+    app,
+    "custom-sns-stack",
+    description="Create SNS Topics & Add Email Subscriptions"
+)
 
 # Stack Level Tagging
 core.Tag.add(app, key="Owner",
