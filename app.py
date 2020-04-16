@@ -14,6 +14,9 @@ from resource_stacks.custom_s3_resource_policy import CustomS3ResourcePolicyStac
 from resource_stacks.custom_sns import CustomSnsStack
 from resource_stacks.custom_sqs import CustomSqsStack
 
+# Import Serverless Stack resources
+from serverless_stacks.custom_lambda import CustomLambdaStack
+
 
 # EC2 & VPC with Application LoadBalancer
 from app_stacks.vpc_stack import VpcStack
@@ -104,10 +107,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create SQS for microservices
-custom_sqs = CustomSqsStack(
+# custom_sqs = CustomSqsStack(
+#     app,
+#     "custom-sqs-stack",
+#     description="Create a fully managed message queues for microservices"
+# )
+
+# Create Serverless Event Processor using Lambda
+custom_lambda = CustomLambdaStack(
     app,
-    "custom-sqs-stack",
-    description="Create a fully managed message queues for microservices"
+    "custom-lambda-stack",
+    description="Create Serverless Event Processor using Lambda"
 )
 
 # Stack Level Tagging

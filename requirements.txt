@@ -11,3 +11,4 @@ aws_cdk.aws_rds
 aws_cdk.aws_sns
 aws_cdk.aws_sns_subscriptions
 aws_cdk.aws_sqs
+aws_cdk.aws_lambda
