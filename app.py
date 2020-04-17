@@ -16,6 +16,7 @@ from resource_stacks.custom_sqs import CustomSqsStack
 
 # Import Serverless Stack resources
 from serverless_stacks.custom_lambda import CustomLambdaStack
+from serverless_stacks.custom_cloudwatch_loggroups import CustomLoggroupStack
 
 
 # EC2 & VPC with Application LoadBalancer
@@ -114,10 +115,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Serverless Event Processor using Lambda
-custom_lambda = CustomLambdaStack(
+# custom_lambda = CustomLambdaStack(
+#     app,
+#     "custom-lambda-stack",
+#     description="Create Serverless Event Processor using Lambda"
+# )
+
+# Create Custom Cloudwatch Loggroups
+custom_loggroup = CustomLoggroupStack(
     app,
-    "custom-lambda-stack",
-    description="Create Serverless Event Processor using Lambda"
+    "custom-loggroup-stack",
+    description="Create Custom Cloudwatch Loggroups"
 )
 
 # Stack Level Tagging
