@@ -18,6 +18,7 @@ from resource_stacks.custom_sqs import CustomSqsStack
 from serverless_stacks.custom_lambda import CustomLambdaStack
 from serverless_stacks.custom_cloudwatch_loggroups import CustomLoggroupStack
 from serverless_stacks.custom_lambda_src_from_s3 import CustomLambdaSrcFromS3Stack
+from serverless_stacks.custom_lambda_as_cron import CustomLambdaAsCronStack
 
 
 # EC2 & VPC with Application LoadBalancer
@@ -130,10 +131,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Lambda Source Assets from S3
-custom_lambda_src_from_s3 = CustomLambdaSrcFromS3Stack(
+# custom_lambda_src_from_s3 = CustomLambdaSrcFromS3Stack(
+#     app,
+#     "custom-lambda-src-from-s3-stack",
+#     description="Create Lambda Source Assets from S3"
+# )
+
+# Create Lambda as a Cron Scheduler
+custom_lambda_as_cron = CustomLambdaAsCronStack(
     app,
-    "custom-lambda-src-from-s3-stack",
-    description="Create Lambda Source Assets from S3"
+    "custom-lambda-as-cron",
+    description="Create Lambda as a Cron Scheduler"
 )
 
 # Stack Level Tagging
