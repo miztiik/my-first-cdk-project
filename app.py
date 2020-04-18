@@ -17,6 +17,7 @@ from resource_stacks.custom_sqs import CustomSqsStack
 # Import Serverless Stack resources
 from serverless_stacks.custom_lambda import CustomLambdaStack
 from serverless_stacks.custom_cloudwatch_loggroups import CustomLoggroupStack
+from serverless_stacks.custom_lambda_src_from_s3 import CustomLambdaSrcFromS3Stack
 
 
 # EC2 & VPC with Application LoadBalancer
@@ -122,10 +123,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Custom Cloudwatch Loggroups
-custom_loggroup = CustomLoggroupStack(
+# custom_loggroup = CustomLoggroupStack(
+#     app,
+#     "custom-loggroup-stack",
+#     description="Create Custom Cloudwatch Loggroups"
+# )
+
+# Create Lambda Source Assets from S3
+custom_lambda_src_from_s3 = CustomLambdaSrcFromS3Stack(
     app,
-    "custom-loggroup-stack",
-    description="Create Custom Cloudwatch Loggroups"
+    "custom-lambda-src-from-s3-stack",
+    description="Create Lambda Source Assets from S3"
 )
 
 # Stack Level Tagging
