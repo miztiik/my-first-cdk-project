@@ -20,6 +20,7 @@ from serverless_stacks.custom_cloudwatch_loggroups import CustomLoggroupStack
 from serverless_stacks.custom_lambda_src_from_s3 import CustomLambdaSrcFromS3Stack
 from serverless_stacks.custom_lambda_as_cron import CustomLambdaAsCronStack
 from serverless_stacks.custom_dynamodb import CustomDynamoDBStack
+from serverless_stacks.custom_privileges_to_lambda import CustomPrivilegesToLambdaStack
 
 
 # EC2 & VPC with Application LoadBalancer
@@ -146,10 +147,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # DynamoDB: Key-Value Database
-custom_key_value_store_dynamodb = CustomDynamoDBStack(
+# custom_key_value_store_dynamodb = CustomDynamoDBStack(
+#     app,
+#     "custom-key-value-store-dynamodb",
+#     description="DynamoDB: Key-Value Database"
+# )
+
+# Add custom privileges to Lambda
+custom_privileges_to_lambda = CustomPrivilegesToLambdaStack(
     app,
-    "custom-key-value-store-dynamodb",
-    description="DynamoDB: Key-Value Database"
+    "custom-privileges-to-lambda",
+    description="Add custom privileges to Lambda"
 )
 
 
