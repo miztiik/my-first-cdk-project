@@ -19,6 +19,7 @@ from serverless_stacks.custom_lambda import CustomLambdaStack
 from serverless_stacks.custom_cloudwatch_loggroups import CustomLoggroupStack
 from serverless_stacks.custom_lambda_src_from_s3 import CustomLambdaSrcFromS3Stack
 from serverless_stacks.custom_lambda_as_cron import CustomLambdaAsCronStack
+from serverless_stacks.custom_dynamodb import CustomDynamoDBStack
 
 
 # EC2 & VPC with Application LoadBalancer
@@ -138,11 +139,19 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Lambda as a Cron Scheduler
-custom_lambda_as_cron = CustomLambdaAsCronStack(
+# custom_lambda_as_cron = CustomLambdaAsCronStack(
+#     app,
+#     "custom-lambda-as-cron",
+#     description="Create Lambda as a Cron Scheduler"
+# )
+
+# DynamoDB: Key-Value Database
+custom_key_value_store_dynamodb = CustomDynamoDBStack(
     app,
-    "custom-lambda-as-cron",
-    description="Create Lambda as a Cron Scheduler"
+    "custom-key-value-store-dynamodb",
+    description="DynamoDB: Key-Value Database"
 )
+
 
 # Stack Level Tagging
 core.Tag.add(app, key="Owner",
