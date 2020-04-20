@@ -22,6 +22,8 @@ from serverless_stacks.custom_lambda_as_cron import CustomLambdaAsCronStack
 from serverless_stacks.custom_dynamodb import CustomDynamoDBStack
 from serverless_stacks.custom_privileges_to_lambda import CustomPrivilegesToLambdaStack
 
+# Import Monitoring Stacks
+from monitoring_stacks.custom_ec2_with_alarms import CustomEc2WithAlarmsStack
 
 # EC2 & VPC with Application LoadBalancer
 from app_stacks.vpc_stack import VpcStack
@@ -154,10 +156,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Add custom privileges to Lambda
-custom_privileges_to_lambda = CustomPrivilegesToLambdaStack(
+# custom_privileges_to_lambda = CustomPrivilegesToLambdaStack(
+#     app,
+#     "custom-privileges-to-lambda",
+#     description="Add custom privileges to Lambda"
+# )
+
+# Add CloudWatch Alarms to watch metrics and send notifications
+custom_ec2_with_alarms = CustomEc2WithAlarmsStack(
     app,
-    "custom-privileges-to-lambda",
-    description="Add custom privileges to Lambda"
+    "custom-ec2-with-alarms",
+    description="Add CloudWatch Alarms to watch metrics and send notifications"
 )
 
 
