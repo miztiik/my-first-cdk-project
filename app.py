@@ -21,9 +21,11 @@ from serverless_stacks.custom_lambda_src_from_s3 import CustomLambdaSrcFromS3Sta
 from serverless_stacks.custom_lambda_as_cron import CustomLambdaAsCronStack
 from serverless_stacks.custom_dynamodb import CustomDynamoDBStack
 from serverless_stacks.custom_privileges_to_lambda import CustomPrivilegesToLambdaStack
+from serverless_stacks.custom_apigw import CustomApiGatewayStack
 
 # Import Monitoring Stacks
 from monitoring_stacks.custom_ec2_with_alarms import CustomEc2WithAlarmsStack
+from monitoring_stacks.custom_cloudwatch_metrics import CustomMetricsStack
 
 # EC2 & VPC with Application LoadBalancer
 from app_stacks.vpc_stack import VpcStack
@@ -163,10 +165,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Add CloudWatch Alarms to watch metrics and send notifications
-custom_ec2_with_alarms = CustomEc2WithAlarmsStack(
+# custom_ec2_with_alarms = CustomEc2WithAlarmsStack(
+#     app,
+#     "custom-ec2-with-alarms",
+#     description="Add CloudWatch Alarms to watch metrics and send notifications"
+# )
+
+# Create Custom Metrics & Alarms
+custom_metric_and_alarms = CustomMetricsStack(
     app,
-    "custom-ec2-with-alarms",
-    description="Add CloudWatch Alarms to watch metrics and send notifications"
+    "custom-metric-and-alarms",
+    description="Create Custom Metrics & Alarms"
 )
 
 
