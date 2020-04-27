@@ -172,10 +172,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Custom Metrics & Alarms
-custom_metric_and_alarms = CustomMetricsStack(
+# custom_metric_and_alarms = CustomMetricsStack(
+#     app,
+#     "custom-metric-and-alarms",
+#     description="Create Custom Metrics & Alarms"
+# )
+
+# # Create API Gateway for your Lambda Function
+custom_api_gateway_endpoint = CustomApiGatewayStack(
     app,
-    "custom-metric-and-alarms",
-    description="Create Custom Metrics & Alarms"
+    "custom-api-gateway-endpoint",
+    description="Create API Gateway for your Lambda Function"
 )
 
 

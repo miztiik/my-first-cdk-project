@@ -18,3 +18,4 @@ aws_cdk.aws_events_targets
 aws_cdk.aws_dynamodb
 aws_cdk.aws_cloudwatch
 aws_cdk.aws_cloudwatch_actions
+aws_cdk.aws_apigateway
