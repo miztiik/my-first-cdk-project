@@ -13,7 +13,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
 
-    author="author",
+    author="Mystique",
 
     package_dir={"": "my_first_cdk_project"},
     packages=setuptools.find_packages(where="my_first_cdk_project"),
