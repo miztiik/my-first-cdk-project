@@ -26,6 +26,7 @@ from serverless_stacks.custom_apigw import CustomApiGatewayStack
 # Import Monitoring Stacks
 from monitoring_stacks.custom_ec2_with_alarms import CustomEc2WithAlarmsStack
 from monitoring_stacks.custom_cloudwatch_metrics import CustomMetricsStack
+from monitoring_stacks.custom_cloudwatch_live_dashboard import CustomCloudwatchLiveDashboardStack
 
 # EC2 & VPC with Application LoadBalancer
 from app_stacks.vpc_stack import VpcStack
@@ -178,11 +179,18 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 #     description="Create Custom Metrics & Alarms"
 # )
 
-# # Create API Gateway for your Lambda Function
-custom_api_gateway_endpoint = CustomApiGatewayStack(
+# Create API Gateway for your Lambda Function
+# custom_api_gateway_endpoint = CustomApiGatewayStack(
+#     app,
+#     "custom-api-gateway-endpoint",
+#     description="Create API Gateway for your Lambda Function"
+# )
+
+# CloudWatch Live Dashboard for your App
+custom_cloudwatch_live_dashboard = CustomCloudwatchLiveDashboardStack(
     app,
-    "custom-api-gateway-endpoint",
-    description="Create API Gateway for your Lambda Function"
+    "custom-cloudwatch-live-dashboard",
+    description="CloudWatch Live Dashboard for your App"
 )
 
 
