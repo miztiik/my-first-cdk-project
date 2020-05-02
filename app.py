@@ -41,6 +41,7 @@ from stacks_from_cfn.stack_from_existing_cfn_template import StackFromCloudforma
 
 # Advanced Use-Cases Stack Resources
 from advanced_use_cases.deploy_static_site import DeployStaticSiteStack
+from advanced_use_cases.deploy_cloudfront_oai_static_site import DeployCloudfrontOaiStaticSiteStack
 
 app = core.App()
 
@@ -196,12 +197,18 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 #     description="CloudWatch Live Dashboard for your App"
 # )
 
-
 # Create Static Website & deploy web assets
-create_static_site = DeployStaticSiteStack(
+# create_static_site = DeployStaticSiteStack(
+#     app,
+#     "static-site",
+#     description="Create Static Website & deploy web assets"
+# )
+
+# Create Cloudfront for Static Website & protect with OAI
+create_deploy_cloudfront_oai_static_site = DeployCloudfrontOaiStaticSiteStack(
     app,
-    "static-site",
-    description="Create Static Website & deploy web assets"
+    "cloudfront-oai-static-site",
+    description="Create Cloudfront for Static Website & protect with OAI"
 )
 
 
