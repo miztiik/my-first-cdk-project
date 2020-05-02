@@ -39,6 +39,9 @@ from app_db_stack.rds_3tier_stack import RdsDatabase3TierStack
 
 from stacks_from_cfn.stack_from_existing_cfn_template import StackFromCloudformationTemplate
 
+# Advanced Use-Cases Stack Resources
+from advanced_use_cases.deploy_static_site import DeployStaticSiteStack
+
 app = core.App()
 
 env_prod = core.Environment(account="835800058584", region="us-east-1")
@@ -187,10 +190,18 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # CloudWatch Live Dashboard for your App
-custom_cloudwatch_live_dashboard = CustomCloudwatchLiveDashboardStack(
+# custom_cloudwatch_live_dashboard = CustomCloudwatchLiveDashboardStack(
+#     app,
+#     "custom-cloudwatch-live-dashboard",
+#     description="CloudWatch Live Dashboard for your App"
+# )
+
+
+# Create Static Website & deploy web assets
+create_static_site = DeployStaticSiteStack(
     app,
-    "custom-cloudwatch-live-dashboard",
-    description="CloudWatch Live Dashboard for your App"
+    "static-site",
+    description="Create Static Website & deploy web assets"
 )
 
 
