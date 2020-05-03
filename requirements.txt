@@ -21,3 +21,4 @@ aws_cdk.aws_cloudwatch_actions
 aws_cdk.aws_apigateway
 aws_cdk.aws_s3_deployment
 aws_cdk.aws_cloudfront
+aws_cdk.aws_s3_notifications

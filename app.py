@@ -42,6 +42,7 @@ from stacks_from_cfn.stack_from_existing_cfn_template import StackFromCloudforma
 # Advanced Use-Cases Stack Resources
 from advanced_use_cases.deploy_static_site import DeployStaticSiteStack
 from advanced_use_cases.deploy_cloudfront_oai_static_site import DeployCloudfrontOaiStaticSiteStack
+from advanced_use_cases.serverless_event_processor_architecture_with_s3_events import ServerlessEventProcessorArchitectureWithS3EventsStack
 
 app = core.App()
 
@@ -205,11 +206,19 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Cloudfront for Static Website & protect with OAI
-create_deploy_cloudfront_oai_static_site = DeployCloudfrontOaiStaticSiteStack(
+# create_deploy_cloudfront_oai_static_site = DeployCloudfrontOaiStaticSiteStack(
+#     app,
+#     "cloudfront-oai-static-site",
+#     description="Create Cloudfront for Static Website & protect with OAI"
+# )
+
+# Serverless Event Processor Architecture with S3 Events
+serverless_event_processor_architecture_with_s3_events = ServerlessEventProcessorArchitectureWithS3EventsStack(
     app,
-    "cloudfront-oai-static-site",
-    description="Create Cloudfront for Static Website & protect with OAI"
+    "serverless-event-processor-architecture-with-s3-events",
+    description="Serverless Event Processor Architecture with S3 Events"
 )
+
 
 
 # Stack Level Tagging
