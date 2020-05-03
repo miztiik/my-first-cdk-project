@@ -43,6 +43,7 @@ from stacks_from_cfn.stack_from_existing_cfn_template import StackFromCloudforma
 from advanced_use_cases.deploy_static_site import DeployStaticSiteStack
 from advanced_use_cases.deploy_cloudfront_oai_static_site import DeployCloudfrontOaiStaticSiteStack
 from advanced_use_cases.serverless_event_processor_architecture_with_s3_events import ServerlessEventProcessorArchitectureWithS3EventsStack
+from advanced_use_cases.serverless_rest_api_architecture import ServerlessRestApiArchitectureStack
 
 app = core.App()
 
@@ -213,13 +214,18 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Serverless Event Processor Architecture with S3 Events
-serverless_event_processor_architecture_with_s3_events = ServerlessEventProcessorArchitectureWithS3EventsStack(
+# serverless_event_processor_architecture_with_s3_events = ServerlessEventProcessorArchitectureWithS3EventsStack(
+#     app,
+#     "serverless-event-processor-architecture-with-s3-events",
+#     description="Serverless Event Processor Architecture with S3 Events"
+# )
+
+# Create Serverless Rest API with API Gateway, Lambda and DynamoDB
+serverless_rest_api_architecture = ServerlessRestApiArchitectureStack(
     app,
-    "serverless-event-processor-architecture-with-s3-events",
-    description="Serverless Event Processor Architecture with S3 Events"
+    "serverless-rest-api-architecture",
+    description="Create Serverless Rest API with API Gateway, Lambda and DynamoDB"
 )
-
-
 
 # Stack Level Tagging
 core.Tag.add(app, key="Owner",
