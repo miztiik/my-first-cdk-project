@@ -45,6 +45,7 @@ from advanced_use_cases.deploy_cloudfront_oai_static_site import DeployCloudfron
 from advanced_use_cases.serverless_event_processor_architecture_with_s3_events import ServerlessEventProcessorArchitectureWithS3EventsStack
 from advanced_use_cases.serverless_rest_api_architecture import ServerlessRestApiArchitectureStack
 from advanced_use_cases.serverless_data_stream_processor_architecture_with_kinesis import ServerlessStreamProcessorArchitectureWithKinesisStack
+from advanced_use_cases.serverless_dynamo_event_processor_architecture_with_ddb_streams import ServerlessDdbStreamProcessorArchitectureWithSteamsStack
 
 app = core.App()
 
@@ -229,10 +230,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Serverless Stream Processor Architecture with Kinesis
-serverless_data_stream_processor_architecture_with_s3_kinesis = ServerlessStreamProcessorArchitectureWithKinesisStack(
+# serverless_data_stream_processor_architecture_with_s3_kinesis = ServerlessStreamProcessorArchitectureWithKinesisStack(
+#     app,
+#     "serverless-data-stream-processor",
+#     description="Create Serverless Stream Processor Architecture with Kinesis"
+# )
+
+# Create Serverless DynamoDB Event Processor Architecture with Dynamodb Streams
+serverless_ddb_event_stream_processor_architecture_with_ddb_streams = ServerlessDdbStreamProcessorArchitectureWithSteamsStack(
     app,
-    "serverless-data-stream-processor",
-    description="Create Serverless Stream Processor Architecture with Kinesis"
+    "serverless-ddb-event-stream-processor",
+    description="Create Serverless DynamoDB Event Processor Architecture with Dynamodb Streams"
 )
 
 # Stack Level Tagging
