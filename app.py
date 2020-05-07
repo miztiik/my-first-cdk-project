@@ -48,6 +48,7 @@ from advanced_use_cases.serverless_data_stream_processor_architecture_with_kines
 from advanced_use_cases.serverless_dynamo_event_processor_architecture_with_ddb_streams import ServerlessDdbStreamProcessorArchitectureWithSteamsStack
 from advanced_use_cases.containerized_microservice_architecture_with_ecs import ContainerizedMicroserviceArchitectureWithEcsStack
 from advanced_use_cases.serverless_containers_architecture_with_fargate import ServerlessContainersArchitectureWithFargateStack
+from advanced_use_cases.serverless_batch_processor_architecture_with_fargate import ServerlessBatchProcessorArchitectureWithFargateStack
 
 app = core.App()
 
@@ -253,11 +254,20 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create highly available load balanced serverless containerized microservices with Fargate
-serverless_containerized_microservice_architecture = ServerlessContainersArchitectureWithFargateStack(
+# serverless_containerized_microservice_architecture = ServerlessContainersArchitectureWithFargateStack(
+#     app,
+#     "serverless-containerized-microservice-architecture",
+#     description="Create highly available load balanced serverless containerized microservices with Fargate"
+# )
+
+
+# Create serverless batch processor using Fargate and Cloudwatch Events
+serverless_batch_processor_architecture = ServerlessBatchProcessorArchitectureWithFargateStack(
     app,
-    "serverless-containerized-microservice-architecture",
-    description="Create highly available load balanced serverless containerized microservices with Fargate"
+    "serverless-batch-processor-architecture",
+    description="Create serverless batch processor using Fargate and Cloudwatch Events"
 )
+
 
 # Stack Level Tagging
 core.Tag.add(app, key="Owner",
