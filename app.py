@@ -46,6 +46,7 @@ from advanced_use_cases.serverless_event_processor_architecture_with_s3_events i
 from advanced_use_cases.serverless_rest_api_architecture import ServerlessRestApiArchitectureStack
 from advanced_use_cases.serverless_data_stream_processor_architecture_with_kinesis import ServerlessStreamProcessorArchitectureWithKinesisStack
 from advanced_use_cases.serverless_dynamo_event_processor_architecture_with_ddb_streams import ServerlessDdbStreamProcessorArchitectureWithSteamsStack
+from advanced_use_cases.containerized_microservice_architecture_with_ecs import ContainerizedMicroserviceArchitectureWithEcsStack
 
 app = core.App()
 
@@ -237,10 +238,17 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 # )
 
 # Create Serverless DynamoDB Event Processor Architecture with Dynamodb Streams
-serverless_ddb_event_stream_processor_architecture_with_ddb_streams = ServerlessDdbStreamProcessorArchitectureWithSteamsStack(
+# serverless_ddb_event_stream_processor_architecture_with_ddb_streams = ServerlessDdbStreamProcessorArchitectureWithSteamsStack(
+#     app,
+#     "serverless-ddb-event-stream-processor",
+#     description="Create Serverless DynamoDB Event Processor Architecture with Dynamodb Streams"
+# )
+
+# Create highly available load balanced containerized microservices with ECS
+containerized_microservice_architecture = ContainerizedMicroserviceArchitectureWithEcsStack(
     app,
-    "serverless-ddb-event-stream-processor",
-    description="Create Serverless DynamoDB Event Processor Architecture with Dynamodb Streams"
+    "containerized-microservice-architecture",
+    description="Create highly available load balanced containerized microservices with ECS"
 )
 
 # Stack Level Tagging
