@@ -50,6 +50,9 @@ from advanced_use_cases.containerized_microservice_architecture_with_ecs import 
 from advanced_use_cases.serverless_containers_architecture_with_fargate import ServerlessContainersArchitectureWithFargateStack
 from advanced_use_cases.serverless_batch_processor_architecture_with_fargate import ServerlessBatchProcessorArchitectureWithFargateStack
 
+# Serverless Chat Application
+from serverless_chat_application.multi_person_chat_application import MultiPersonChatApplicationStack
+
 app = core.App()
 
 env_prod = core.Environment(account="835800058584", region="us-east-1")
@@ -260,14 +263,19 @@ env_prod = core.Environment(account="835800058584", region="us-east-1")
 #     description="Create highly available load balanced serverless containerized microservices with Fargate"
 # )
 
-
 # Create serverless batch processor using Fargate and Cloudwatch Events
-serverless_batch_processor_architecture = ServerlessBatchProcessorArchitectureWithFargateStack(
-    app,
-    "serverless-batch-processor-architecture",
-    description="Create serverless batch processor using Fargate and Cloudwatch Events"
-)
+# serverless_batch_processor_architecture = ServerlessBatchProcessorArchitectureWithFargateStack(
+#     app,
+#     "serverless-batch-processor-architecture",
+#     description="Create serverless batch processor using Fargate and Cloudwatch Events"
+# )
 
+# Create Serverless Multi Person Chat Application using Fargate
+multi_person_chat_application = MultiPersonChatApplicationStack(
+    app,
+    "multi-person-chat-application",
+    description="Create Serverless Multi Person Chat Application using Fargate"
+)
 
 # Stack Level Tagging
 core.Tag.add(app, key="Owner",
