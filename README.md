@@ -7,6 +7,10 @@ Here you will learn to use CDK to deploy different AWS resources. All the `sampl
 
     - 🛠 AWS CLI Installed & Configured - [Get help here](https://youtu.be/TPyyfmQte0U)
     - 🛠 AWS CDK Installed & Configured - [Get help here](https://www.youtube.com/watch?v=MKwxpszw0Rc)
+    - 🛠 Python Packages, _Change the below commands to suit your operating system, the following are written for _Amazon Linux 2_
+        - Python3 - `yum install -y python3`
+        - Python Pip - `yum install -y python-pip`
+        - Virtualenv - `pip3 install virtualenv`
 
 1. ## ⚙️ Setting up the environment
 
@@ -27,6 +31,7 @@ Here you will learn to use CDK to deploy different AWS resources. All the `sampl
 
 
     # Make sure you in root directory
+    python3 -m venv .env
     source .env/bin/activate
     # Install any dependencies
     pip install -r requirements.txt
@@ -48,12 +53,12 @@ Here you will learn to use CDK to deploy different AWS resources. All the `sampl
 
 ## 👋 Buy me a coffee
 
-[Buy me](https://paypal.me/valaxy) a coffee ☕, _or_ You can reach out to get more details through [here](https://youtube.com/c/valaxytechnologies/about).
+Buy me a coffee ☕ through [Ko-Fi](https://ko-fi.com/miztiik).
 
 ### 💡 Help/Suggestions or 🐛 Bugs
 
 - [Github Issues](https://github.com/miztiik/my-first-cdk-project/issues)
 
-### ℹ️ Metadata
+### 🏷️ Metadata
 
 **Level**: 200
