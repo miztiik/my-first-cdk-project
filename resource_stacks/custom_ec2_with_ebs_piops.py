@@ -64,11 +64,11 @@ class CustomEc2PiopsStack(core.Stack):
                         "VolumeSize": "8",
                         "VolumeType": "io1",
                         "Iops": "400",
-                        "DeleteOnTermination": "true"
+                        "DeleteOnTermination": True
                     }
                 }
             ]
-        )
+        T
 
         output_1 = core.CfnOutput(self,
                                   "WebServer004Ip",
