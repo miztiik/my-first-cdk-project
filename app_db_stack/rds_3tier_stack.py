@@ -39,5 +39,5 @@ class RdsDatabase3TierStack(core.Stack):
         output_1 = core.CfnOutput(self,
                                   "DatabaseConnectionCommand",
                                   value=f"mysql -h {konstone_db.db_instance_endpoint_address} -P 3306 -u mystiquemaster -p",
-                                  description="Connect to the databa   se using this command"
+                                  description="Connect to the database using this command"
                                   )
