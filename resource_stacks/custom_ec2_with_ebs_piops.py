@@ -68,7 +68,7 @@ class CustomEc2PiopsStack(core.Stack):
                     }
                 }
             ]
-        T
+        )
 
         output_1 = core.CfnOutput(self,
                                   "WebServer004Ip",
